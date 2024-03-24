@@ -20,7 +20,7 @@ def index():
 
 @app.route("/upload")
 def upload_gui_page():
-    return render_template("upload.html")
+    return render_template("upload.html", app_name=os.environ["APP_NAME"])
 
 @app.route('/gui/upload', methods=['POST'])
 def upload_gui():
