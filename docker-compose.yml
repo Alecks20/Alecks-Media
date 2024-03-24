@@ -9,3 +9,5 @@ services:
       - "8032:8032"
     volumes:
       - ./library:/app/library
+      - ./api-uploads:/app/api-uploads
+      - ./uploads:/app/uploads
