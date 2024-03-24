@@ -1,0 +1,119 @@
+
+@font-face {
+    font-family: 'primary';
+    src: url('fonts/primary.tff') formet('toff');
+    font-weight: normal;
+    font-size: normal;
+}
+
+body {
+    font-family: 'primary', sans-serif; /* Fallback to sans-serif if custom font fails to load */
+}
+
+
+.title-text-box {
+    padding: 5px;
+    width: 400px;
+    margin: auto;
+    text-align: center; 
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 50px;
+}
+
+.title-description {
+    width: 200px;
+    margin: 5px auto;
+    text-align: center; 
+    color: white;
+    font-size: 15px;
+}
+
+.secondary-box {
+    width: 50%; 
+    margin: 10px auto;  
+    padding: 20px;
+    border-radius: 10px;  
+     background-color: #161B26; 
+    color: white; 
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: calc(100% - 60px); 
+    margin-top: 50px;
+    position: relative;
+    text-align: left;
+}
+
+.primary-title {
+    font-size: 24px;
+    margin-bottom: 20px;  
+    font-weight: bold;
+}
+
+.primary-text {
+    font-size: 16px;
+    line-height: 1.5;  
+}
+
+.primary-box {
+    width: 50%; 
+    margin: 30px auto;  
+    padding: 20px;
+    border-radius: 10px;  
+     background-color: #161B26;
+    color: white;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: calc(100% - 60px);
+    margin-top: 10px;
+    position: relative;
+    text-align: left;
+}
+
+.secondary-title {
+    font-size: 24px;
+    margin-bottom: 20px;  
+    font-weight: bold;
+}
+
+.secondary-text {
+    font-size: 16px;
+    line-height: 1.5;  
+}
+
+.footer {
+    width: 200px;
+    margin: 5px auto;
+    text-align: center; 
+    color: white;
+    font-size: 15px;
+    bottom: 0;
+}
+
+.upload-form {
+    width: 1000px;
+    margin: 5px auto;
+    text-align: center; 
+    color: white;
+    font-size: 15px;
+    bottom: 0;
+}
+
+.upload-box {
+    width: 50%; 
+    margin: 20px auto;  
+    padding: 30px;
+    border-radius: 10px;  
+     background-color: #161B26;
+    color: white;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: calc(100% - 20px);
+    margin-top: 50px;
+    position: relative;
+    text-align: left;
+}
