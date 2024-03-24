@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, send_from_directory, render_template
+from flask import Flask, request, jsonify, send_from_directory, render_template, redirect, url_for
 import os
 import traceback
 import random
@@ -14,9 +14,13 @@ app.config['API_UPLOADS_FOLDER'] = API_UPLOAD_FOLDER
 AUTH_KEY = os.environ["AUTH_KEY"]
 APP_URL = os.environ["APP_URL"]
 
-@app.route("/")
+@app.route("/home")
 def index():
     return render_template("index.html", app_name=os.environ["APP_NAME"])
+
+@app.route("/")
+def index_redirect():
+    return redirect(url_for("index"))
 
 @app.route("/upload")
 def upload_gui_page():
