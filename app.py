@@ -10,7 +10,7 @@ app = Flask(__name__)
 UPLOAD_FOLDER = "./uploads"
 API_UPLOAD_FOLDER = "./api-uploads"
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.config['API_UPLOADS_FOLDER'] = UPLOAD_FOLDER
+app.config['API_UPLOADS_FOLDER'] = API_UPLOAD_FOLDER
 AUTH_KEY = os.environ["AUTH_KEY"]
 APP_URL = os.environ["APP_URL"]
 
