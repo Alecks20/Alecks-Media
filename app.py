@@ -77,6 +77,11 @@ def get_api_image(filename):
 def get_image(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template('404.html'), 404
+
+
 if __name__ == '__main__':
     if not os.path.exists(UPLOAD_FOLDER):
         os.makedirs(UPLOAD_FOLDER)
