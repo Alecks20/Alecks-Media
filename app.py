@@ -79,8 +79,11 @@ def get_image(filename):
 
 @app.errorhandler(404)
 def page_not_found(error):
-    return render_template('404.html'), 404
+    return render_template('error.html', text="404 Not Found"), 404
 
+@app.errorhandler(405)
+def method_not_allowed(error):
+  return render_template("error.html", text="Method Not Allowed"), 405
 
 if __name__ == '__main__':
     if not os.path.exists(UPLOAD_FOLDER):

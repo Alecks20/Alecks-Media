@@ -118,7 +118,7 @@ body {
     text-align: left;
 }
 
-.title-404 {
+.title-error {
     padding: 5px;
     width: 400px;
     margin: 20px auto;  
@@ -129,7 +129,7 @@ body {
     margin-top: 50px;
 }
 
-.text-404 {
+.text-error {
     width: 200px;
     margin: 5px auto;
     text-align: center; 
