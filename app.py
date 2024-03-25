@@ -13,10 +13,11 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['API_UPLOADS_FOLDER'] = API_UPLOAD_FOLDER
 AUTH_KEY = os.environ["AUTH_KEY"]
 APP_URL = os.environ["APP_URL"]
+FAVICON = "https://cdn.a3d.pro/uploads/iawzhqbq8ssi-xxckj0k57-wh-pb493hxib-i6sojywwwr22a7uyhi-lj15xgv5pxtc3uyp7lagvfdbadmdx-j1qv98x2-w-8-jyiynxzsnnvrlx6tg-0it-q9en9p6y9p12wxpneopm9eqw8l86ef.png"
 
 @app.route("/home")
 def index():
-    return render_template("index.html", app_name=os.environ["APP_NAME"])
+    return render_template("index.html", app_name=os.environ["APP_NAME"], favicon=FAVICON)
 
 @app.route("/")
 def index_redirect():
@@ -24,7 +25,7 @@ def index_redirect():
 
 @app.route("/upload")
 def upload_gui_page():
-    return render_template("upload.html", app_name=os.environ["APP_NAME"])
+    return render_template("upload.html", app_name=os.environ["APP_NAME"], favicon=FAVICON)
 
 @app.route('/gui/upload', methods=['POST'])
 def upload_gui():
@@ -79,11 +80,11 @@ def get_image(filename):
 
 @app.errorhandler(404)
 def page_not_found(error):
-    return render_template('error.html', text="404 Not Found"), 404
+    return render_template('error.html', text="404 Not Found", favicon=FAVICON), 404
 
 @app.errorhandler(405)
 def method_not_allowed(error):
-  return render_template("error.html", text="Method Not Allowed"), 405
+  return render_template("error.html", text="Method Not Allowed", favicon=FAVICON), 405
 
 if __name__ == '__main__':
     if not os.path.exists(UPLOAD_FOLDER):
