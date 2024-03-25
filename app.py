@@ -38,7 +38,7 @@ def upload_gui():
       final_code.append(random.choice(gen))
     filename = "".join(final_code)
     filename = filename.replace(", ", "")
-    filename = filename + ".png"
+    filename = filename + file.filename
     file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
     return jsonify({'success': 'File uploaded successfully', 'filename': file.filename, 'url': APP_URL + "/uploads/" + filename})
 
@@ -64,7 +64,7 @@ def upload_file():
         filename = "".join(final_code)
         filename = filename.replace(", ", "")
 
-        filename = filename + ".png"
+        filename = filename + file.filename
         file.save(os.path.join(app.config['API_UPLOADS_FOLDER'], filename))
         return jsonify({'success': 'File uploaded successfully', 'filename': filename, 'url': APP_URL + "/api/uploads/" + filename})
   except Exception:
