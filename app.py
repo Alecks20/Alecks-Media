@@ -34,7 +34,7 @@ def upload_gui():
         return jsonify({'error': 'Unauthorized'}), 401
     file = request.files['file']
     final_code = []
-    for i in range(150):
+    for i in range(20):
       final_code.append(random.choice(gen))
     filename = "".join(final_code)
     filename = filename.replace(", ", "")
@@ -59,7 +59,7 @@ def upload_file():
     if file:
 
         final_code = []
-        for i in range(150):
+        for i in range(20):
            final_code.append(random.choice(gen))
         filename = "".join(final_code)
         filename = filename.replace(", ", "")
