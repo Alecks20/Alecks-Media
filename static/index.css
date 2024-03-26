@@ -130,3 +130,20 @@ body {
     color: white;
     font-size: 14px;
 }
+
+.nav-container ul {
+    list-style: none; 
+ }
+ 
+ .nav-container li {
+     display: inline-block;
+     margin-right: 20px;
+ }
+ 
+ .nav li a {
+     display: inline-block;
+     color: #646884;
+     text-align: center;
+     padding: auto;
+     text-decoration: none;
+ }
