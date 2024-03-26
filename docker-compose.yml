@@ -4,7 +4,7 @@ services:
   cdn:
     restart: always
     build: .
-    container_name: cosmic_cdn
+    container_name: a3d_cdn
     ports:
       - "8032:8032"
     volumes:
