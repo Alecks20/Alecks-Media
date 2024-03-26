@@ -15,13 +15,9 @@ AUTH_KEY = os.environ["AUTH_KEY"]
 APP_URL = os.environ["APP_URL"]
 FAVICON = "https://cdn.a3d.pro/uploads/iawzhqbq8ssi-xxckj0k57-wh-pb493hxib-i6sojywwwr22a7uyhi-lj15xgv5pxtc3uyp7lagvfdbadmdx-j1qv98x2-w-8-jyiynxzsnnvrlx6tg-0it-q9en9p6y9p12wxpneopm9eqw8l86ef.png"
 
-@app.route("/home")
-def index():
-    return render_template("index.html", app_name=os.environ["APP_NAME"], favicon=FAVICON)
-
 @app.route("/")
 def index_redirect():
-    return redirect(url_for("index"))
+    return render_template("index.html", app_name=os.environ["APP_NAME"], favicon=FAVICON)
 
 @app.route('/gui/upload', methods=['POST'])
 def upload_gui():
