@@ -1,13 +1,7 @@
 
-@font-face {
-    font-family: 'primary';
-    src: url('fonts/primary.tff') formet('toff');
-    font-weight: normal;
-    font-size: normal;
-}
-
 body {
-    font-family: 'primary', sans-serif; /* Fallback to sans-serif if custom font fails to load */
+    font-family: "Poppins";
+    font-size: normal;
 }
 
 
@@ -27,7 +21,7 @@ body {
     margin: 5px auto;
     text-align: center; 
     color: white;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .secondary-box {
@@ -89,7 +83,7 @@ body {
     margin: 5px auto;
     text-align: center; 
     color: white;
-    font-size: 15px;
+    font-size: 14px;
     bottom: 0;
 }
 

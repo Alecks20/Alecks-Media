@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
     <link rel="shortcut icon" href="{{ favicon }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
     <title>{{ app_name }} - Homepage</title>
 </head>
 <body style="background-color: #0C0F15;"></body>
@@ -15,6 +16,14 @@
         <p class="title-description">Self-hostable media server</p>
     </div>
 
+    <div class="upload-box">
+        <form action="/gui/upload" method="post" enctype="multipart/form-data" class="upload-form">
+            <input type="file" name="file" id="file">
+            <label for="authorization">Authorization Token:</label>
+            <input type="text" name="authorization" id="authorization">
+            <input type="submit" value="Upload">
+        </form>
+    </div>
 
     <div class="secondary-box">
         <h1 class="secondary-title">How it works</h1>
@@ -29,6 +38,7 @@
             This server is powered by A3D CDN, a self-hostable media server written in python deployed within 1 minute using docker and docker compose. Check out our repository on github and consider deploying it yourself.
         </p>
     </div>
+
 
 
     <div class="footer">
