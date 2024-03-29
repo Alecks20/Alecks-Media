@@ -25,7 +25,7 @@ def upload_gui():
     filename = filename.replace(", ", "")
     filename = filename + "-" + file.filename
     file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-    return jsonify({'success': 'File uploaded successfully', 'filename': file.filename, 'url': APP_URL + "/uploads/" + filename})
+    return redirect(APP_URL + "/uploads/" + filename)
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
