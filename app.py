@@ -12,7 +12,11 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 AUTH_KEY = os.environ["AUTH_KEY"]
 APP_URL = os.environ["APP_URL"]
 
-@app.route('/gui/upload', methods=['POST'])
+@app.route("/")
+def index():
+    return redirect("https://a3d.pro")
+
+@app.route('/upload-from-gui', methods=['POST'])
 def upload_gui():
     authorization_token = request.form.get('authorization')
     if authorization_token != AUTH_KEY:
@@ -58,6 +62,14 @@ def upload_file():
 @app.route('/uploads/<filename>', methods=['GET'])
 def get_image(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
+
+@app.errorhandler(404)
+def page_not_found(error):
+    return redirect("https://a3d.pro"), 404
+
+@app.errorhandler(405)
+def method_not_allowed(error):
+    return redirect("https://a3d.pro"), 405
 
 if __name__ == '__main__':
     if not os.path.exists(UPLOAD_FOLDER):
