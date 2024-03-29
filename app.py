@@ -8,24 +8,8 @@ from libraries import gen
 
 app = Flask(__name__)
 UPLOAD_FOLDER = "./uploads"
-API_UPLOAD_FOLDER = "./api-uploads"
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.config['API_UPLOADS_FOLDER'] = API_UPLOAD_FOLDER
 AUTH_KEY = os.environ["AUTH_KEY"]
-APP_URL = os.environ["APP_URL"]
-FAVICON = "https://a3d.pro/assets/favicon.png"
-
-@app.route("/")
-def index_redirect():
-    return redirect("https://a3d.pro")
-
-@app.route("/upload")
-def upload():
-    return render_template("upload.html", app_name=os.environ["APP_NAME"], favicon=FAVICON)
-
-@app.route("/info")
-def info():
-    return render_template("info.html", app_name=os.environ["APP_NAME"], favicon=FAVICON)
 
 @app.route('/gui/upload', methods=['POST'])
 def upload_gui():
@@ -42,7 +26,7 @@ def upload_gui():
     file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
     return jsonify({'success': 'File uploaded successfully', 'filename': file.filename, 'url': APP_URL + "/uploads/" + filename})
 
-@app.route('/api/upload', methods=['POST'])
+@app.route('/upload', methods=['POST'])
 def upload_file():
   try:
     if 'file' not in request.files:
@@ -65,30 +49,16 @@ def upload_file():
         filename = filename.replace(", ", "")
 
         filename = filename + "-" + file.filename
-        file.save(os.path.join(app.config['API_UPLOADS_FOLDER'], filename))
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         return jsonify({'success': 'File uploaded successfully', 'filename': filename, 'url': APP_URL + "/api/uploads/" + filename})
   except Exception:
       print(traceback.format_exc)
-
-@app.route('/api/uploads/<filename>', methods=['GET'])
-def get_api_image(filename):
-    return send_from_directory(app.config['API_UPLOADS_FOLDER'], filename)
 
 @app.route('/uploads/<filename>', methods=['GET'])
 def get_image(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
-@app.errorhandler(404)
-def page_not_found(error):
-    return render_template('error.html', text="404 Not Found", favicon=FAVICON), 404
-
-@app.errorhandler(405)
-def method_not_allowed(error):
-  return render_template("error.html", text="Method Not Allowed", favicon=FAVICON), 405
-
 if __name__ == '__main__':
     if not os.path.exists(UPLOAD_FOLDER):
         os.makedirs(UPLOAD_FOLDER)
-    if not os.path.exists(API_UPLOAD_FOLDER):
-        os.makedirs(API_UPLOAD_FOLDER)
     app.run(host="0.0.0.0",debug=True,port=8032)
