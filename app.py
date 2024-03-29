@@ -23,6 +23,10 @@ def index_redirect():
 def upload():
     return render_template("upload.html", app_name=os.environ["APP_NAME"], favicon=FAVICON)
 
+@app.route("/info")
+def info():
+    return render_template("info.html", app_name=os.environ["APP_NAME"], favicon=FAVICON)
+
 @app.route('/gui/upload', methods=['POST'])
 def upload_gui():
     authorization_token = request.form.get('authorization')
