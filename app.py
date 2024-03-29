@@ -17,7 +17,11 @@ FAVICON = "https://a3d.pro/assets/favicon.png"
 
 @app.route("/")
 def index_redirect():
-    return render_template("index.html", app_name=os.environ["APP_NAME"], favicon=FAVICON)
+    return redirect("https://a3d.pro")
+
+@app.route("/upload")
+def upload():
+    return render_template("upload.html", app_name=os.environ["APP_NAME"], favicon=FAVICON)
 
 @app.route('/gui/upload', methods=['POST'])
 def upload_gui():
