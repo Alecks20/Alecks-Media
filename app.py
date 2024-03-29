@@ -10,6 +10,7 @@ app = Flask(__name__)
 UPLOAD_FOLDER = "./uploads"
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 AUTH_KEY = os.environ["AUTH_KEY"]
+APP_URL = os.environ["APP_URL"]
 
 @app.route('/gui/upload', methods=['POST'])
 def upload_gui():
