@@ -25,7 +25,7 @@ def upload_gui():
     filename = filename.replace(", ", "")
     filename = filename + "-" + file.filename
     file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-    return redirect(APP_URL + "/uploads/" + filename)
+    return redirect(APP_URL + "/content/" + filename)
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
@@ -51,7 +51,7 @@ def upload_file():
 
         filename = filename + "-" + file.filename
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        return jsonify({'success': 'File uploaded successfully', 'filename': filename, 'url': APP_URL + "/api/uploads/" + filename})
+        return jsonify({'success': 'File uploaded successfully', 'filename': filename, 'url': APP_URL + "/content/" + filename})
   except Exception:
       print(traceback.format_exc)
 
