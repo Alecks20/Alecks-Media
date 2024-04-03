@@ -9,4 +9,6 @@ COPY . .
 
 VOLUME /app/uploads
 
+EXPOSE 80
+
 CMD ["python3","app.py"]
