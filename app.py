@@ -55,7 +55,7 @@ def upload_file():
   except Exception:
       print(traceback.format_exc)
 
-@app.route('/uploads/<filename>', methods=['GET'])
+@app.route('/content/<filename>', methods=['GET'])
 def get_image(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
